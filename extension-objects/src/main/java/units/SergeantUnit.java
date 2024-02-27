@@ -40,7 +40,7 @@ public class SergeantUnit extends Unit {
   @Override
   public UnitExtension getUnitExtension(String extensionName) {
 
-    if (extensionName.equals("SergeantExtension")) {
+    if ("SergeantExtension".equals(extensionName)) {
       return Optional.ofNullable(unitExtension).orElseGet(() -> new Sergeant(this));
     }
 

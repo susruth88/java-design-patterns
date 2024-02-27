@@ -90,7 +90,7 @@ public class App {
    * @return true if the input parameter is an operator
    */
   public static boolean isOperator(String s) {
-    return s.equals("+") || s.equals("-") || s.equals("*");
+    return "+".equals(s) || "-".equals(s) || "*".equals(s);
   }
 
   /**

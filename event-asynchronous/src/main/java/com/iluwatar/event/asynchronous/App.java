@@ -90,7 +90,7 @@ public class App {
         LOGGER.error("{} was not found. Defaulting to non-interactive mode.", PROP_FILE_NAME, e);
       }
       var property = prop.getProperty("INTERACTIVE_MODE");
-      if (property.equalsIgnoreCase("YES")) {
+      if ("YES".equalsIgnoreCase(property)) {
         interactiveMode = true;
       }
     }
@@ -173,7 +173,7 @@ public class App {
     LOGGER.info("Just one egg (O) OR all of them (A) ?: ");
     var eggChoice = s.nextLine();
 
-    if (eggChoice.equalsIgnoreCase("O")) {
+    if ("O".equalsIgnoreCase(eggChoice)) {
       LOGGER.info("Which egg?: ");
       int eventId = s.nextInt();
       try {
@@ -181,7 +181,7 @@ public class App {
       } catch (EventDoesNotExistException e) {
         LOGGER.error(e.getMessage());
       }
-    } else if (eggChoice.equalsIgnoreCase("A")) {
+    } else if ("A".equalsIgnoreCase(eggChoice)) {
       eventManager.statusOfAllEvents();
     }
   }
@@ -203,7 +203,7 @@ public class App {
     var eventType = s.nextLine();
     LOGGER.info("How long should this egg be boiled for (in seconds)?: ");
     var eventTime = s.nextInt();
-    if (eventType.equalsIgnoreCase("A")) {
+    if ("A".equalsIgnoreCase(eventType)) {
       try {
         var eventId = eventManager.createAsync(eventTime);
         eventManager.start(eventId);
@@ -212,7 +212,7 @@ public class App {
           | EventDoesNotExistException e) {
         LOGGER.error(e.getMessage());
       }
-    } else if (eventType.equalsIgnoreCase("S")) {
+    } else if ("S".equalsIgnoreCase(eventType)) {
       try {
         var eventId = eventManager.create(eventTime);
         eventManager.start(eventId);

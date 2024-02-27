@@ -35,7 +35,7 @@ public class WithdrawMoneyService extends Service<String> {
 
   @Override
   public ChapterResult<String> process(String value) {
-    if (value.equals("bad_order") || value.equals("crashed_order")) {
+    if ("bad_order".equals(value) || "crashed_order".equals(value)) {
       LOGGER.info("The chapter '{}' has been started. But the exception has been raised."
               + "The rollback is about to start",
           getName(), value);

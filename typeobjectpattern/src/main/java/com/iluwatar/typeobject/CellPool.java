@@ -85,7 +85,7 @@ public class CellPool {
     var i = 0;
     for (var e = jp.candies.keys(); e.hasMoreElements(); ) {
       var s = e.nextElement();
-      if (!s.equals(FRUIT) && !s.equals(CANDY)) {
+      if (!FRUIT.equals(s) && !CANDY.equals(s)) {
         //not generic
         randomCode[i] = jp.candies.get(s);
         i++;

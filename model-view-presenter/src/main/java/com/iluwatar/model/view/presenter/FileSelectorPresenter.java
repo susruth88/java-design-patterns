@@ -86,7 +86,7 @@ public class FileSelectorPresenter implements Serializable {
    * Ok button handler.
    */
   public void confirmed() {
-    if (loader.getFileName() == null || loader.getFileName().equals("")) {
+    if (loader.getFileName() == null || "".equals(loader.getFileName())) {
       view.showMessage("Please give the name of the file first!");
       return;
     }

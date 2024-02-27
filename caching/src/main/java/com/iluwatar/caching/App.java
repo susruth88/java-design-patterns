@@ -145,7 +145,7 @@ public class App {
    */
   private static boolean isDbMongo(final String[] args) {
     for (String arg : args) {
-      if (arg.equals(USE_MONGO_DB)) {
+      if (USE_MONGO_DB.equals(arg)) {
         return true;
       }
     }

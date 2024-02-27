@@ -40,7 +40,7 @@ public class CommanderUnit extends Unit {
   @Override
   public UnitExtension getUnitExtension(String extensionName) {
 
-    if (extensionName.equals("CommanderExtension")) {
+    if ("CommanderExtension".equals(extensionName)) {
       return Optional.ofNullable(unitExtension).orElseGet(() -> new Commander(this));
     }
 

@@ -69,7 +69,7 @@ public class ClientPropertiesBean implements Serializable {
     businessInterest = Boolean.parseBoolean(req.getParameter(BUSINESS_PARAM));
     scienceNewsInterest = Boolean.parseBoolean(req.getParameter(SCIENCE_PARAM));
     String tempName = req.getParameter(NAME_PARAM);
-    if (tempName == null || tempName.equals("")) {
+    if (tempName == null || "".equals(tempName)) {
       tempName = DEFAULT_NAME;
     }
     name = tempName;
