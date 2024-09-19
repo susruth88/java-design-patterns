@@ -30,6 +30,7 @@ import com.iluwatar.event.sourcing.event.AccountCreateEvent;
 import com.iluwatar.event.sourcing.event.DomainEvent;
 import com.iluwatar.event.sourcing.event.MoneyDepositEvent;
 import com.iluwatar.event.sourcing.event.MoneyTransferEvent;
+import io.github.pixee.security.BoundedLineReader;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -62,7 +63,7 @@ public class JsonFileJournal extends EventJournal {
       try (var input = new BufferedReader(
           new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
         String line;
-        while ((line = input.readLine()) != null) {
+        while ((line = BoundedLineReader.readLine(input, 5_000_000)) != null) {
           events.add(line);
         }
       } catch (IOException e) {

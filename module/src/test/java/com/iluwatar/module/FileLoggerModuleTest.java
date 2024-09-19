@@ -24,6 +24,7 @@
  */
 package com.iluwatar.module;
 
+import io.github.pixee.security.BoundedLineReader;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -160,7 +161,7 @@ public final class FileLoggerModuleTest {
       while (bufferedReader.ready()) {
 
         /* Read the line */
-        firstLine = bufferedReader.readLine();
+        firstLine = BoundedLineReader.readLine(bufferedReader, 5_000_000);
       }
 
       LOGGER.info("ModuleTest::readFirstLine() : firstLine : " + firstLine);
