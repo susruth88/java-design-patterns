@@ -25,6 +25,7 @@
 package com.iluwatar.masterworker;
 
 import static com.iluwatar.masterworker.ArrayUtilityMethods.matricesSame;
+import java.security.SecureRandom;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.Random;
@@ -41,7 +42,7 @@ class ArrayInputTest {
     var rows = 10;
     var columns = 10;
     var inputMatrix = new int[rows][columns];
-    var rand = new Random();
+    var rand = new SecureRandom();
     for (var i = 0; i < rows; i++) {
       for (var j = 0; j < columns; j++) {
         inputMatrix[i][j] = rand.nextInt(10);
