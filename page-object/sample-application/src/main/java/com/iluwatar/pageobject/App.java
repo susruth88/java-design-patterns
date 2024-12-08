@@ -24,6 +24,7 @@
  */
 package com.iluwatar.pageobject;
 
+import io.github.pixee.security.SystemCommand;
 import java.awt.Desktop;
 import java.io.File;
 import java.io.IOException;
@@ -79,7 +80,7 @@ public final class App {
 
       } else {
         // java Desktop not supported - above unlikely to work for Windows so try instead...
-        Runtime.getRuntime().exec("cmd.exe start " + applicationFile);
+        SystemCommand.runCommand(Runtime.getRuntime(), "cmd.exe start " + applicationFile);
       }
 
     } catch (IOException ex) {
