@@ -24,6 +24,7 @@
  */
 package com.iluwatar.tolerantreader;
 
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -90,6 +91,7 @@ public final class RainbowFishSerializer {
 
     try (var fileIn = new FileInputStream(filename);
          var objIn = new ObjectInputStream(fileIn)) {
+      ObjectInputFilters.enableObjectFilterIfUnprotected(objIn);
       map = (Map<String, String>) objIn.readObject();
     }
 
