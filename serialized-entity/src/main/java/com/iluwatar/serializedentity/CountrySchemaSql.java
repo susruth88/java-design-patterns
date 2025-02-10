@@ -24,6 +24,7 @@
  */
 package com.iluwatar.serializedentity;
 
+import io.github.pixee.security.ObjectInputFilters;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -109,6 +110,7 @@ public class CountrySchemaSql implements CountryDao {
           Blob countryBlob = rs.getBlob("country");
           ByteArrayInputStream baos = new ByteArrayInputStream(countryBlob.getBytes(1, (int) countryBlob.length()));
           ObjectInputStream ois = new ObjectInputStream(baos);
+          ObjectInputFilters.enableObjectFilterIfUnprotected(ois);
           country = (Country) ois.readObject();
           LOGGER.info("Country: " + country);
         }

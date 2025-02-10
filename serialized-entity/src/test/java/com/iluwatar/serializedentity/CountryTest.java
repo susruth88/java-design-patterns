@@ -23,6 +23,7 @@
  * THE SOFTWARE.
  */
 package com.iluwatar.serializedentity;
+import io.github.pixee.security.ObjectInputFilters;
 import org.junit.jupiter.api.Test;
 
 import java.io.*;
@@ -85,6 +86,7 @@ public class CountryTest {
       // De-serialize Country
       try {
           ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("output.txt"));
+          ObjectInputFilters.enableObjectFilterIfUnprotected(objectInputStream);
           Country country = (Country) objectInputStream.readObject();
           objectInputStream.close();
           System.out.println(country);
