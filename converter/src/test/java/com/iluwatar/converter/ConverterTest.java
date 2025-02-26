@@ -24,6 +24,7 @@
  */
 package com.iluwatar.converter;
 
+import java.security.SecureRandom;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.List;
@@ -68,7 +69,7 @@ class ConverterTest {
             userDto.getFirstName(),
             userDto.getLastName(),
             userDto.isActive(),
-            String.valueOf(new Random().nextInt())
+            String.valueOf(new SecureRandom().nextInt())
         ),
         user -> new UserDto(
             user.getFirstName(),

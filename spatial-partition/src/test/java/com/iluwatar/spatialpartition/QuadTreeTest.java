@@ -24,6 +24,7 @@
  */
 package com.iluwatar.spatialpartition;
 
+import java.security.SecureRandom;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ class QuadTreeTest {
   @Test
   void queryTest() {
     var points = new ArrayList<Point>();
-    var rand = new Random();
+    var rand = new SecureRandom();
     for (int i = 0; i < 20; i++) {
       var p = new Bubble(rand.nextInt(300), rand.nextInt(300), i, rand.nextInt(2) + 1);
       points.add(p);
